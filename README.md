@@ -60,7 +60,7 @@ Java Spring Boot (Backend): A powerful, established Java framework for building 
 ---
 
 ## Key Features
-👨‍💼 👨‍💼 **Employee Management** – Create, update, fetch, and delete employees.  
+👨‍💼 **Employee Management** – Create, update, fetch, and delete employees.  
 🏢 **Department Integration** – Assign employees to departments and manage department-specific operations.  
 📍 **Address Handling** – Manage multiple addresses per employee.  
 💼 **Job Management** – Define job roles, assign employees to jobs, and fetch job-related details.  
