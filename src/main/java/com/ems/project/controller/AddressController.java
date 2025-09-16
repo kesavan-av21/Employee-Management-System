@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +40,10 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Addresses added successfully"),
         @ApiResponse(responseCode = "404", description = "Employee not found")
     })
-    @PostMapping("/POST/address/{empNo}")
+    @PostMapping(
+    		path = "/POST/address/{empNo}",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<AddressDto>> addEmpAddress(
         @Parameter(description = "Employee number to which addresses will be added")
         @PathVariable long empNo,
@@ -57,7 +61,10 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Address updated successfully"),
         @ApiResponse(responseCode = "404", description = "Address not found")
     })
-    @PutMapping("/PUT/update/{empNo}/{addressType}")
+    @PutMapping(
+    		path = "/PUT/update/{empNo}/{addressType}",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<AddressDto> updateAddressByEmpNo(
         @Parameter(description = "Employee number of the address to update")
         @PathVariable long empNo,
@@ -80,7 +87,9 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Addresses retrieved successfully"),
         @ApiResponse(responseCode = "404", description = "Employee not found")
     })
-    @GetMapping("/GET/{empNo}")
+    @GetMapping(
+    		path = "/GET/{empNo}",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<AddressDto>> getEmpAddressByEmpNo(
         @Parameter(description = "Employee number of the address to retrieve")
         @PathVariable Long empNo
@@ -100,7 +109,9 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Addresses retrieved successfully"),
         @ApiResponse(responseCode = "404", description = "No addresses found with given type")
     })
-    @GetMapping("/GET/type/{addressType}")
+    @GetMapping(
+    		path = "/GET/type/{addressType}",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<AddressDto>> findByAddressType(
         @Parameter(description = "Address type of the address to retrieve")
         @PathVariable String addressType
@@ -120,7 +131,9 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Addresses retrieved successfully"),
         @ApiResponse(responseCode = "404", description = "No employees found with given address count")
     })
-    @GetMapping("/GET/address/{count}")
+    @GetMapping(
+    		path = "/GET/address/{count}",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<AddressDto>> findByEmployeeWithAddressCount(
         @Parameter(description = "Employee address count to retrieve the data")
         @PathVariable int count
@@ -140,7 +153,9 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Addresses retrieved successfully"),
         @ApiResponse(responseCode = "404", description = "No employee present")
     })
-    @GetMapping("/GET/address")
+    @GetMapping(
+    		path = "/GET/address",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<AddressDto>> getAllAddress(
         @Parameter(description = "Page number")
         @RequestParam int pageNo,
@@ -202,7 +217,9 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Address retrieved successfully"),
         @ApiResponse(responseCode = "404", description = "Address not found")
     })
-    @GetMapping("/GET/id/{id}")
+    @GetMapping(
+    		path = "/GET/id/{id}",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<AddressDto> getAddressById(
         @Parameter(description = "Unique ID of the address")
         @PathVariable Long id
@@ -236,7 +253,10 @@ public class AddressController {
         @ApiResponse(responseCode = "200", description = "Address updated successfully"),
         @ApiResponse(responseCode = "404", description = "Address not found")
     })
-    @PutMapping("/PUT/id/{id}")
+    @PutMapping(
+    		path = "/PUT/id/{id}",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<AddressDto> updateAddressById(
         @Parameter(description = "ID")
         @PathVariable Long id,

@@ -2,6 +2,7 @@ package com.ems.project.controller;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,7 +45,10 @@ public class JobController {
         @ApiResponse(responseCode = "400", description = "Invalid input data"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping("/POST")
+    @PostMapping(
+    		path = "/POST",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<JobDto> addJobDetails(@RequestBody JobDto jobDto) {
         return jobService.addJobDetails(jobDto);
     }
@@ -74,7 +78,9 @@ public class JobController {
         @ApiResponse(responseCode = "404", description = "Job not found for the given employee number"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/jobdetails/{empNo}")
+    @GetMapping(
+    		path = "/GET/jobdetails/{empNo}",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<JobDto> getEmpJobDetailsUsingEmpNo(
         @Parameter(description = "Employee number to get the job detail")
         @PathVariable Long empNo
@@ -91,7 +97,9 @@ public class JobController {
         @ApiResponse(responseCode = "200", description = "Jobs retrieved successfully"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/jobs")
+    @GetMapping(
+    		path = "/GET/jobs",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<JobDto>> gettingAllJobs() {
         List<JobDto> jobDto = jobService.getAllJobs();
         return ResponseEntity.ok(jobDto);

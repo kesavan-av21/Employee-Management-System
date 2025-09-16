@@ -48,7 +48,10 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employee created successfully"),
         @ApiResponse(responseCode = "400", description = "Invalid input data")
     })
-    @PostMapping(path = "/POST/emp")
+    @PostMapping(
+    		path = "/POST/emp",
+            consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<EmpMainDetailsDto> addEmployees(
         @RequestBody EmpMainDetailsDto empDto
     ) {
@@ -90,7 +93,9 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employee found"),
         @ApiResponse(responseCode = "204", description = "Employee not found")
     })
-    @GetMapping(path = "/GET/{empNo}")
+    @GetMapping(
+    		path = "/GET/{empNo}",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<EmpDto> getEmpAllDetailsById(
         @Parameter(description = "EmpNo of the employee to be retrieved")
         @PathVariable("empNo") long id
@@ -110,7 +115,9 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employees retrieved successfully"),
         @ApiResponse(responseCode = "404", description = "No employees found")
     })
-    @GetMapping("/GET/emp")
+    @GetMapping(
+    		path="/GET/emp",
+    	    produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<EmpDto>> getAllEmpDetails() {
         List<EmpDto> list = empService.getAllEmpDetails();
         if (list.isEmpty()) {
@@ -127,7 +134,9 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employee found"),
         @ApiResponse(responseCode = "204", description = "Employee not found")
     })
-    @GetMapping("/GET/emp/details/{empNo}")
+    @GetMapping(
+    		path = "/GET/emp/details/{empNo}",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<EmpDto> getEmpEmpTableDetails(
         @Parameter(description = "EmpNo")
         @PathVariable("empNo") long id
@@ -148,7 +157,9 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employees sorted successfully"),
         @ApiResponse(responseCode = "400", description = "Invalid sort parameters")
     })
-    @GetMapping("/GET/emp/sort")
+    @GetMapping(
+    		path = "/GET/emp/sort",
+    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Page<EmpDto>> sortingEmp(
     	@Parameter(description = "Field")
         @RequestParam String field,
@@ -170,7 +181,10 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employees retrieved successfully"),
         @ApiResponse(responseCode = "400", description = "Invalid age or sort parameters")
     })
-    @GetMapping("/GET/emp/sort/age/greater")
+    @GetMapping(
+    		path = "/GET/emp/sort/age/greater",
+    	    produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }
+    		)
     public ResponseEntity<List<EmpDto>> sortEmpByAgeGreaterThanAgeByDir(
     	@Parameter(description = "direction")
         @RequestParam Long age,
@@ -188,7 +202,9 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employees retrieved successfully"),
         @ApiResponse(responseCode = "400", description = "Invalid age or pagination parameters")
     })
-    @GetMapping("/GET/emp/sort/age/less")
+    @GetMapping(
+    		path = "/GET/emp/sort/age/less",
+    	    produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Page<EmpDto>> sortEmpByAgeLessThanAgeByDir(
     	@Parameter(description = "age")
         @RequestParam Long age,
@@ -210,7 +226,7 @@ public class EmpController {
         @ApiResponse(responseCode = "200", description = "Employee deleted successfully"),
         @ApiResponse(responseCode = "404", description = "Employee not found")
     })
-    @DeleteMapping("/DELETE/emp/{empNo}")
+    @DeleteMapping(path = "/DELETE/emp/{empNo}")
     public ResponseEntity<String> deleteById(
         @Parameter(description = "EmpNo")
         @PathVariable("empNo") Long id
@@ -225,7 +241,7 @@ public class EmpController {
     @ApiResponses({
         @ApiResponse(responseCode = "200", description = "All employees deleted successfully")
     })
-    @DeleteMapping("/DELETE/emp")
+    @DeleteMapping(path = "/DELETE/emp")
     public ResponseEntity<String> deleteAllEmployee() {
         empService.deleteAllEmployees();
         return ResponseEntity.ok("All employees deleted successfully");

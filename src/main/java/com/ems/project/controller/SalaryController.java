@@ -2,6 +2,7 @@ package com.ems.project.controller;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,7 +48,10 @@ public class SalaryController {
         @ApiResponse(responseCode = "404", description = "Employee not found"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping("/POST/{empNo}")
+    @PostMapping(
+    		path = "/POST/{empNo}",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<SalaryDto> addEmpSalaryUsingEmpNo(
         @Parameter(description = "Employee number of the employee to add the salary details")
         @PathVariable Long empNo,
@@ -65,7 +69,9 @@ public class SalaryController {
         @ApiResponse(responseCode = "404", description = "No employees found with salary greater than given amount"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/by-salary/{salary}")
+    @GetMapping(
+    		path = "/GET/by-salary/{salary}",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<SalaryDto>> findEmpDetailsSalaryGreaterThan(
         @Parameter(description = "Minimum salary filter")
         @PathVariable double salary
@@ -81,7 +87,9 @@ public class SalaryController {
         @ApiResponse(responseCode = "200", description = "Salary count retrieved successfully"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/amount")
+    @GetMapping(
+    		path = "/GET/amount",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Integer> salaryCountGreaterThan(
         @Parameter(description = "Salary amount filter")
         @RequestParam double salary
@@ -99,7 +107,10 @@ public class SalaryController {
         @ApiResponse(responseCode = "404", description = "Employee not found"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PutMapping("/PUT/{empNo}")
+    @PutMapping(
+    		path = "/PUT/{empNo}",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<SalaryDto> updateSalary(
         @Parameter(description = "Employee number to update salary")
         @PathVariable long empNo,
@@ -118,7 +129,9 @@ public class SalaryController {
         @ApiResponse(responseCode = "404", description = "Salary not found for the employee"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/by-emp/{empNo}")
+    @GetMapping(
+    		path = "/GET/by-emp/{empNo}",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<SalaryDto> getEmpSalaryUsingEmpNo(
         @Parameter(description = "Employee number to get salary details")
         @PathVariable long empNo
@@ -135,7 +148,9 @@ public class SalaryController {
         @ApiResponse(responseCode = "200", description = "Salaries retrieved successfully"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/salaries")
+    @GetMapping(
+    		path = "/GET/salaries",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<SalaryDto>> getAllSalaries() {
         List<SalaryDto> salDto = salaryService.getAllSalary();
         return ResponseEntity.ok(salDto);

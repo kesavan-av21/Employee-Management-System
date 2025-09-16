@@ -2,6 +2,7 @@ package com.ems.project.controller;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,10 @@ public class EmpDeptDetailsController {
         @ApiResponse(responseCode = "400", description = "Invalid request body"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping("/POST")
+    @PostMapping(
+    		path = "/POST",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<EmpDeptDetailsDto> addEmpDeptDetails(@RequestBody EmpDeptDetailsDto dto) {
         return ResponseEntity.ok(empDeptDetailsService.addEmpDeptDetails(dto));
     }
@@ -51,7 +55,9 @@ public class EmpDeptDetailsController {
         @ApiResponse(responseCode = "404", description = "No mappings found for employee"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/{empNo}")
+    @GetMapping(
+    		path = "/GET/{empNo}",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<EmpDeptDetailsDto>> getEmpDeptDetails(
         @Parameter(description = "Employee number") @PathVariable long empNo
     ) {
@@ -68,7 +74,8 @@ public class EmpDeptDetailsController {
         @ApiResponse(responseCode = "404", description = "Mapping not found"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @DeleteMapping("/DELETE/{empNo}/{deptId}")
+    @DeleteMapping(
+    		path = "/DELETE/{empNo}/{deptId}")
     public ResponseEntity<String> deleteEmpDeptDetails(
         @Parameter(description = "Employee number") @PathVariable long empNo,
         @Parameter(description = "Department number") @PathVariable long deptId
@@ -86,7 +93,9 @@ public class EmpDeptDetailsController {
         @ApiResponse(responseCode = "404", description = "No mappings found"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/all")
+    @GetMapping(
+    		path = "/GET/all",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<EmpDeptDetailsDto>> getEmpDeptDetails() {
         List<EmpDeptDetailsDto> details = empDeptDetailsService.getAllMapping();
         return ResponseEntity.ok(details);
@@ -101,7 +110,9 @@ public class EmpDeptDetailsController {
         @ApiResponse(responseCode = "404", description = "No employees found for department"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/dept/{deptId}")
+    @GetMapping(
+    		path = "/GET/dept/{deptId}",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<EmpDeptDetailsDto>> getEmployeesByDept(
         @Parameter(description = "Department ID") @PathVariable long deptId
     ) {

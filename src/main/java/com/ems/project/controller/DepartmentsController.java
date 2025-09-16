@@ -3,6 +3,7 @@ package com.ems.project.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,7 +41,10 @@ public class DepartmentsController {
         @ApiResponse(responseCode = "400", description = "Invalid department data"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping("/POST/depts")
+    @PostMapping(
+    		path = "/POST/depts",
+    				consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+    	            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Dept> addDeptNames(@RequestBody DeptDto deptDto) {
         Dept dept = departmentsSerive.addDepts(deptDto);
         if (dept != null) {
@@ -58,7 +62,10 @@ public class DepartmentsController {
         @ApiResponse(responseCode = "404", description = "Department not found"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PutMapping("/UPDATE")
+    @PutMapping(
+    		path = "/UPDATE",
+    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Dept> updateDepts(@RequestBody DeptUpdateDto deptDto) {
         return ResponseEntity.ok(departmentsSerive.updateDepts(deptDto));
     }
@@ -72,7 +79,9 @@ public class DepartmentsController {
         @ApiResponse(responseCode = "404", description = "No departments found"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/alldepts")
+    @GetMapping(
+    		path = "/GET/alldepts",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<DeptDto>> getDeptNames() {
         return ResponseEntity.ok(departmentsSerive.findAll());
     }
@@ -86,7 +95,9 @@ public class DepartmentsController {
         @ApiResponse(responseCode = "404", description = "Department not found"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/GET/{id}")
+    @GetMapping(
+    		path = "/GET/{id}",
+            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<DeptDto> getDeptName(
         @Parameter(description = "Department ID") 
         @PathVariable long id
