@@ -1,7 +1,7 @@
 
 # Employment Management System (EMS)
 
-A Spring Boot backend application to manage employees, departments, and addresses.
+A Spring Boot backend application to manage employees, departments, and addresses, job, salary.
 This project showcases enterprise-grade backend development with a strong emphasis on clean architecture, DTO-based API design, validations, exception handling, and maintainability.
 
 
@@ -60,13 +60,17 @@ Java Spring Boot (Backend): A powerful, established Java framework for building 
 ---
 
 ## Key Features
-👨‍💼 **Employee Management** – Create, update, fetch, and delete employees.  
-🏢 **Department Integration** – Assign employees to departments.  
+👨‍💼 👨‍💼 **Employee Management** – Create, update, fetch, and delete employees.  
+🏢 **Department Integration** – Assign employees to departments and manage department-specific operations.  
 📍 **Address Handling** – Manage multiple addresses per employee.  
+💼 **Job Management** – Define job roles, assign employees to jobs, and fetch job-related details.  
+💰 **Salary Management** – Store and manage employee salary details, link salaries to employees, and enable future payroll integration.  
+🔗 **Employee–Department–Job Integration** – Maintain relationships between employees, their departments, and assigned jobs for complete organizational mapping.  
+
 ✅ **Validation Rules** –  
-- Age must be between **18 and 65**  
-- Email must follow **valid format**  
-- Mobile number must follow **valid format**  
+- Age must be between 18 and 65  
+- Email must follow valid format  
+- Mobile number must follow valid format  
 
 🚫 **Exception Handling** – Centralized error handling with user-friendly responses.  
 📑 **Paging & Sorting** – Efficient retrieval of large datasets.  
@@ -76,81 +80,83 @@ Java Spring Boot (Backend): A powerful, established Java framework for building 
 ⚡ **DevTools** – Hot reload for faster development.  
 🔐 **Future Scope** – Authentication & authorization with JWT, Docker deployment, payroll module.  
 
+
 ---
 
 ## Project Structure
-- Employee-Management-System/
-- ├── src/
-- │   ├── main/
-- │   │   ├── java/
-- │   │   │   └── com/
-- │   │   │       └── ems/
-- │   │   │           └── project/
-- │   │   │               ├── EmployeeManagementSystemApplication.java
-- │   │   │
-- │   │   │               ├── controller/
-- │   │   │               │   ├── EmpController.java
-- │   │   │               │   ├── DepartmentsController.java
-- │   │   │               │   ├── AddressController.java
-- │   │   │               │   ├── EmpDeptDetailsController.java
-- │   │   │               │   ├── JobController.java
-- │   │   │               │   └── SalaryController.java
-- │   │   │
-- │   │   │               ├── dto/
-- │   │   │               │   ├── EmpDto.java
-- │   │   │               │   ├── DeptDto.java
-- │   │   │               │   ├── AddressDto.java
-- │   │   │               │   ├── DeptUpdateDto.java
-- │   │   │               │   ├── EmpDeptDetailsDto.java
-- │   │   │               │   ├── EmpMainDetailsDto.java
-- │   │   │               │   ├── JobDto.java
-- │   │   │               │   └── SalaryDto.java
-- │   │   │
-- │   │   │               ├── entity/
-- │   │   │               │   ├── Employee.java
-- │   │   │               │   ├── Dept.java
-- │   │   │               │   ├── Address.java
-- │   │   │               │   ├── EmpDeptDetails.java
-- │   │   │               │   ├── Job.java
-- │   │   │               │   └── Salary.java
-- │   │   │
-- │   │   │               ├── exception/
-- │   │   │               │   ├── ExceptionAdviceController.java
-- │   │   │               │   ├── DepartmentDetailsAlreadyExistsException.java
-- │   │   │               │   ├── EmployeeDetailsAlreadyExistException.java
-- │   │   │               │   └── ResourceNotFoundException.java
-- │   │   │
-- │   │   │               ├── repository/
-- │   │   │               │   ├── EmployeeRepository.java
-- │   │   │               │   ├── DeptRepository.java
-- │   │   │               │   ├── AddressRepository.java
-- │   │   │               │   ├── EmpDeptDetailsRepository.java
-- │   │   │               │   ├── JobRepository.java
-- │   │   │               │   └── SalaryRepository.java
-- │   │   │
-- │   │   │               └── service/
-- │   │   │                   ├── EmpService.java
-- │   │   │                   ├── DepartmentsService.java
-- │   │   │                   ├── AddressService.java
-- │   │   │                   ├── EmpDeptDetailsService.java
-- │   │   │                   ├── JobService.java
-- │   │   │                   └── SalaryService.java
-- │   │   │
-- │   │   └── resources/
-- │   │       ├── application.properties
-- │   │       ├── static/
-- │   │       └── templates/
-- │   │
-- │   └── test/
-- │       └── java/
-- │           └── com/
-- │               └── ems/
-- │                   └── project/
-- │                       └── EmployeeManagementSystemApplicationTests.java
-- ├── README.md
-- ├── .gitignore
-- ├── pom.xml
-
+```text
+Employee-Management-System/
+├── README.md
+├── .gitignore
+├── pom.xml
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── ems/
+│   │   │           └── project/
+│   │   │               ├── EmployeeManagementSystemApplication.java
+│   │   │
+│   │   │               ├── controller/
+│   │   │               │   ├── EmpController.java
+│   │   │               │   ├── DepartmentsController.java
+│   │   │               │   ├── AddressController.java
+│   │   │               │   ├── EmpDeptDetailsController.java
+│   │   │               │   ├── JobController.java
+│   │   │               │   └── SalaryController.java
+│   │   │
+│   │   │               ├── dto/
+│   │   │               │   ├── EmpDto.java
+│   │   │               │   ├── DeptDto.java
+│   │   │               │   ├── AddressDto.java
+│   │   │               │   ├── DeptUpdateDto.java
+│   │   │               │   ├── EmpDeptDetailsDto.java
+│   │   │               │   ├── EmpMainDetailsDto.java
+│   │   │               │   ├── JobDto.java
+│   │   │               │   └── SalaryDto.java
+│   │   │
+│   │   │               ├── entity/
+│   │   │               │   ├── Employee.java
+│   │   │               │   ├── Dept.java
+│   │   │               │   ├── Address.java
+│   │   │               │   ├── EmpDeptDetails.java
+│   │   │               │   ├── Job.java
+│   │   │               │   └── Salary.java
+│   │   │
+│   │   │               ├── exception/
+│   │   │               │   ├── ExceptionAdviceController.java
+│   │   │               │   ├── DepartmentDetailsAlreadyExistsException.java
+│   │   │               │   ├── EmployeeDetailsAlreadyExistException.java
+│   │   │               │   └── ResourceNotFoundException.java
+│   │   │
+│   │   │               ├── repository/
+│   │   │               │   ├── EmployeeRepository.java
+│   │   │               │   ├── DeptRepository.java
+│   │   │               │   ├── AddressRepository.java
+│   │   │               │   ├── EmpDeptDetailsRepository.java
+│   │   │               │   ├── JobRepository.java
+│   │   │               │   └── SalaryRepository.java
+│   │   │
+│   │   │               └── service/
+│   │   │                   ├── EmpService.java
+│   │   │                   ├── DepartmentsService.java
+│   │   │                   ├── AddressService.java
+│   │   │                   ├── EmpDeptDetailsService.java
+│   │   │                   ├── JobService.java
+│   │   │                   └── SalaryService.java
+│   │   │
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       ├── static/
+│   │       └── templates/
+│   │
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── ems/
+│                   └── project/
+│                       └── EmployeeManagementSystemApplicationTests.java
+```
 ---
 
 ## API Endpoints
