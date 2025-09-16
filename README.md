@@ -79,7 +79,77 @@ Java Spring Boot (Backend): A powerful, established Java framework for building 
 ---
 
 ## Project Structure
-![Project Structure](project_structure.png)
+- Employee-Management-System/
+- ├── src/
+- │   ├── main/
+- │   │   ├── java/
+- │   │   │   └── com/
+- │   │   │       └── ems/
+- │   │   │           └── project/
+- │   │   │               ├── EmployeeManagementSystemApplication.java
+- │   │   │
+- │   │   │               ├── controller/
+- │   │   │               │   ├── EmpController.java
+- │   │   │               │   ├── DepartmentsController.java
+- │   │   │               │   ├── AddressController.java
+- │   │   │               │   ├── EmpDeptDetailsController.java
+- │   │   │               │   ├── JobController.java
+- │   │   │               │   └── SalaryController.java
+- │   │   │
+- │   │   │               ├── dto/
+- │   │   │               │   ├── EmpDto.java
+- │   │   │               │   ├── DeptDto.java
+- │   │   │               │   ├── AddressDto.java
+- │   │   │               │   ├── DeptUpdateDto.java
+- │   │   │               │   ├── EmpDeptDetailsDto.java
+- │   │   │               │   ├── EmpMainDetailsDto.java
+- │   │   │               │   ├── JobDto.java
+- │   │   │               │   └── SalaryDto.java
+- │   │   │
+- │   │   │               ├── entity/
+- │   │   │               │   ├── Employee.java
+- │   │   │               │   ├── Dept.java
+- │   │   │               │   ├── Address.java
+- │   │   │               │   ├── EmpDeptDetails.java
+- │   │   │               │   ├── Job.java
+- │   │   │               │   └── Salary.java
+- │   │   │
+- │   │   │               ├── exception/
+- │   │   │               │   ├── ExceptionAdviceController.java
+- │   │   │               │   ├── DepartmentDetailsAlreadyExistsException.java
+- │   │   │               │   ├── EmployeeDetailsAlreadyExistException.java
+- │   │   │               │   └── ResourceNotFoundException.java
+- │   │   │
+- │   │   │               ├── repository/
+- │   │   │               │   ├── EmployeeRepository.java
+- │   │   │               │   ├── DeptRepository.java
+- │   │   │               │   ├── AddressRepository.java
+- │   │   │               │   ├── EmpDeptDetailsRepository.java
+- │   │   │               │   ├── JobRepository.java
+- │   │   │               │   └── SalaryRepository.java
+- │   │   │
+- │   │   │               └── service/
+- │   │   │                   ├── EmpService.java
+- │   │   │                   ├── DepartmentsService.java
+- │   │   │                   ├── AddressService.java
+- │   │   │                   ├── EmpDeptDetailsService.java
+- │   │   │                   ├── JobService.java
+- │   │   │                   └── SalaryService.java
+- │   │   │
+- │   │   └── resources/
+- │   │       ├── application.properties
+- │   │       ├── static/
+- │   │       └── templates/
+- │   │
+- │   └── test/
+- │       └── java/
+- │           └── com/
+- │               └── ems/
+- │                   └── project/
+- │                       └── EmployeeManagementSystemApplicationTests.java
+- ├── README.md
+- ├── .gitignore
+- ├── pom.xml
 
 ---
 
