@@ -1,5 +1,5 @@
 
-## Employment Management System (EMS)
+# Employment Management System (EMS)
 
 A Spring Boot backend application to manage employees, departments, and addresses.
 This project showcases enterprise-grade backend development with a strong emphasis on clean architecture, DTO-based API design, validations, exception handling, and maintainability.
@@ -23,10 +23,6 @@ Error handling & ResponseEntity-based API design.
 Paging, sorting, and database mapping with JPA/Hibernate.
 
 It is designed with scalability, maintainability, and enterprise best practices in mind, making it an ideal showcase for backend development skills.
-
-# Employee Management System (EMS)
-
-# Employee Management System (EMS) 
 ![Java](https://img.shields.io/badge/Java-brightgreen?logo=java&logoColor=white) 
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-brightgreen?logo=spring&logoColor=white) 
 ![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-blue?logo=spring&logoColor=white) 
@@ -78,77 +74,8 @@ Mobile number must follow valid format
 
 🔐 Future Scope – Authentication & authorization with JWT, Docker deployment, payroll module.
 ## Project Structure
-Employee-Management-System/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── ems/
-│   │   │           └── project/
-│   │   │               ├── EmployeeManagementSystemApplication.java
-│   │   │
-│   │   │               ├── controller/
-│   │   │               │   ├── EmpController.java
-│   │   │               │   ├── DepartmentsController.java
-│   │   │               │   ├── AddressController.java
-│   │   │               │   ├── EmpDeptDetailsController.java
-│   │   │               │   ├── JobController.java
-│   │   │               │   └── SalaryController.java
-│   │   │
-│   │   │               ├── dto/
-│   │   │               │   ├── EmpDto.java
-│   │   │               │   ├── DeptDto.java
-│   │   │               │   ├── AddressDto.java
-│   │   │               │   ├── DeptUpdateDto.java
-│   │   │               │   ├── EmpDeptDetailsDto.java
-│   │   │               │   ├── EmpMainDetailsDto.java
-│   │   │               │   ├── JobDto.java
-│   │   │               │   └── SalaryDto.java
-│   │   │
-│   │   │               ├── entity/
-│   │   │               │   ├── Employee.java
-│   │   │               │   ├── Dept.java
-│   │   │               │   ├── Address.java
-│   │   │               │   ├── EmpDeptDetails.java
-│   │   │               │   ├── Job.java
-│   │   │               │   └── Salary.java
-│   │   │
-│   │   │               ├── exception/
-│   │   │               │   ├── ExceptionAdviceController.java
-│   │   │               │   ├── DepartmentDetailsAlreadyExistsException.java
-│   │   │               │   ├── EmployeeDetailsAlreadyExistException.java
-│   │   │               │   └── ResourceNotFoundException.java
-│   │   │
-│   │   │               ├── repository/
-│   │   │               │   ├── EmployeeRepository.java
-│   │   │               │   ├── DeptRepository.java
-│   │   │               │   ├── AddressRepository.java
-│   │   │               │   ├── EmpDeptDetailsRepository.java
-│   │   │               │   ├── JobRepository.java
-│   │   │               │   └── SalaryRepository.java
-│   │   │
-│   │   │               └── service/
-│   │   │                   ├── EmpService.java
-│   │   │                   ├── DepartmentsService.java
-│   │   │                   ├── AddressService.java
-│   │   │                   ├── EmpDeptDetailsService.java
-│   │   │                   ├── JobService.java
-│   │   │                   └── SalaryService.java
-│   │   │
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       ├── static/
-│   │       └── templates/
-│   │
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── ems/
-│                   └── project/
-│                       └── EmployeeManagementSystemApplicationTests.java
-├── .gitignore
-├── pom.xml
-└── README.md
+<pre> ```text Employee-Management-System/ ├── src/ │ ├── main/ │ │ ├── java/ │ │ │ └── com/ │ │ │ └── ems/ │ │ │ └── project/ │ │ │ ├── EmployeeManagementSystemApplication.java │ │ │ │ │ │ ├── controller/ │ │ │ │ ├── EmpController.java │ │ │ │ ├── DepartmentsController.java │ │ │ │ ├── AddressController.java │ │ │ │ ├── EmpDeptDetailsController.java │ │ │ │ ├── JobController.java │ │ │ │ └── SalaryController.java │ │ │ │ │ │ ├── dto/ │ │ │ │ ├── EmpDto.java │ │ │ │ ├── DeptDto.java │ │ │ │ ├── AddressDto.java │ │ │ │ ├── DeptUpdateDto.java │ │ │ │ ├── EmpDeptDetailsDto.java │ │ │ │ ├── EmpMainDetailsDto.java │ │ │ │ ├── JobDto.java │ │ │ │ └── SalaryDto.java │ │ │ │ │ │ ├── entity/ │ │ │ │ ├── Employee.java │ │ │ │ ├── Dept.java │ │ │ │ ├── Address.java │ │ │ │ ├── EmpDeptDetails.java │ │ │ │ ├── Job.java │ │ │ │ └── Salary.java │ │ │ │ │ │ ├── exception/ │ │ │ │ ├── ExceptionAdviceController.java │ │ │ │ ├── DepartmentDetailsAlreadyExistsException.java │ │ │ │ ├── EmployeeDetailsAlreadyExistException.java │ │ │ │ └── ResourceNotFoundException.java │ │ │ │ │ │ ├── repository/ │ │ │ │ ├── EmployeeRepository.java │ │ │ │ ├── DeptRepository.java │ │ │ │ ├── AddressRepository.java │ │ │ │ ├── EmpDeptDetailsRepository.java │ │ │ │ ├── JobRepository.java │ │ │ │ └── SalaryRepository.java │ │ │ │ │ │ └── service/ │ │ │ ├── EmpService.java │ │ │ ├── DepartmentsService.java │ │ │ ├── AddressService.java │ │ │ ├── EmpDeptDetailsService.java │ │ │ ├── JobService.java │ │ │ └── SalaryService.java │ │ │ │ │ └── resources/ │ │ ├── application.properties │ │ ├── static/ │ │ └── templates/ │ │ │ └── test/ │ └── java/ │ └── com/ │ └── ems/ │ └── project/ │ └── EmployeeManagementSystemApplicationTests.java ├── .gitignore ├── pom.xml └── README.md ``` </pre>
+
 
 ## API Endpoints
 
@@ -204,7 +131,7 @@ mvn install
 
 Update src/main/resources/application.properties with your MySQL configuration:
 
- # MySQL Configuration
+  MySQL Configuration
 spring.datasource.url=jdbc:mysql://localhost:3306/ems_db
 spring.datasource.username=root
 spring.datasource.password=your_password
