@@ -1,28 +1,30 @@
 
 # Employment Management System (EMS)
 
-A Spring Boot backend application to manage employees, departments, and addresses.  
-This project showcases enterprise-grade backend development with a strong emphasis on **clean architecture**, **DTO-based API design**, **validations**, **exception handling**, and **maintainability**.
+A Spring Boot backend application to manage employees, departments, and addresses.
+This project showcases enterprise-grade backend development with a strong emphasis on clean architecture, DTO-based API design, validations, exception handling, and maintainability.
 
----
 
-## 📖 Overview
-The **Employee Management System** is a Spring Boot 3 backend application built to manage employees, departments, and their addresses.  
-It follows a clean layered architecture with **DTO-based API design**, **validation**, **centralized exception handling**, and production-ready features like **Swagger API docs**, **Actuator monitoring**, and **structured logging**.
+## Overview
+The Employee Management System is a Spring Boot 3 backend application built to manage employees, departments, and their addresses. It follows a clean layered architecture with DTO-based API design, validation, centralized exception handling, and production-ready features like Swagger API docs, Actuator monitoring, and structured logging.
 
 This project demonstrates:
 
-- Employee lifecycle management (CRUD operations)  
-- Department integration and employee assignment  
-- Address management linked to employees  
-- Business rule validations (age, email, phone)  
-- Error handling & `ResponseEntity`-based API design  
-- Paging, sorting, and database mapping with JPA/Hibernate  
-- Scalability, maintainability, and enterprise best practices  
+Employee lifecycle management (CRUD operations).
+
+Department integration and employee assignment.
+
+Address management linked to employees.
+
+Business rule validations (age, email, phone).
+
+Error handling & ResponseEntity-based API design.
+
+Paging, sorting, and database mapping with JPA/Hibernate.
+
+It is designed with scalability, maintainability, and enterprise best practices in mind, making it an ideal showcase for backend development skills.
 
 ---
-
-## 🛠️ Tech Stack
 
 ![Java](https://img.shields.io/badge/Java-brightgreen?logo=java&logoColor=white)  
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-brightgreen?logo=spring&logoColor=white)  
@@ -37,8 +39,27 @@ This project demonstrates:
 
 ---
 
-## ✨ Key Features
 
+## Key Technologies
+Java Spring Boot (Backend): A powerful, established Java framework for building production-ready applications with Java, offering robust backend support and data management.
+
+ - Spring Data JPA: A part of the Spring Data project that makes it easy to implement JPA-based repositories.
+
+ - Spring Boot Actuator: A set of production-ready features that help monitor and manage the application.
+
+ - Spring Boot Starter Web: A starter for building web applications, including RESTful, application, and WebSocket services.
+
+ - Spring Boot Starter Data JPA: A starter for using Spring Data JPA with Hibernate.
+
+ - RESTful APIs: Representational state transfer (REST) APIs for communication between the frontend and backend.
+
+ - Java 21: The latest LTS version of Java, providing long-term support and stability.
+
+ - Swagger: A tool for documenting and testing RESTful APIs.
+
+---
+
+## Key Features
 👨‍💼 **Employee Management** – Create, update, fetch, and delete employees.  
 🏢 **Department Integration** – Assign employees to departments.  
 📍 **Address Handling** – Manage multiple addresses per employee.  
@@ -57,96 +78,38 @@ This project demonstrates:
 
 ---
 
-## 📂 Project Structure
-
 ## Project Structure
-Employee-Management-System/
-├── src/
-│ ├── main/
-│ │ ├── java/com/ems/project/
-│ │ │ ├── EmployeeManagementSystemApplication.java
-│ │ │ ├── controller/
-│ │ │ │ ├── EmpController.java
-│ │ │ │ ├── DepartmentsController.java
-│ │ │ │ ├── AddressController.java
-│ │ │ │ ├── EmpDeptDetailsController.java
-│ │ │ │ ├── JobController.java
-│ │ │ │ └── SalaryController.java
-│ │ │ ├── dto/
-│ │ │ │ ├── EmpDto.java
-│ │ │ │ ├── DeptDto.java
-│ │ │ │ ├── AddressDto.java
-│ │ │ │ ├── DeptUpdateDto.java
-│ │ │ │ ├── EmpDeptDetailsDto.java
-│ │ │ │ ├── EmpMainDetailsDto.java
-│ │ │ │ ├── JobDto.java
-│ │ │ │ └── SalaryDto.java
-│ │ │ ├── entity/
-│ │ │ │ ├── Employee.java
-│ │ │ │ ├── Dept.java
-│ │ │ │ ├── Address.java
-│ │ │ │ ├── EmpDeptDetails.java
-│ │ │ │ ├── Job.java
-│ │ │ │ └── Salary.java
-│ │ │ ├── exception/
-│ │ │ │ ├── ExceptionAdviceController.java
-│ │ │ │ ├── DepartmentDetailsAlreadyExistsException.java
-│ │ │ │ ├── EmployeeDetailsAlreadyExistException.java
-│ │ │ │ └── ResourceNotFoundException.java
-│ │ │ ├── repository/
-│ │ │ │ ├── EmployeeRepository.java
-│ │ │ │ ├── DeptRepository.java
-│ │ │ │ ├── AddressRepository.java
-│ │ │ │ ├── EmpDeptDetailsRepository.java
-│ │ │ │ ├── JobRepository.java
-│ │ │ │ └── SalaryRepository.java
-│ │ │ └── service/
-│ │ │ ├── EmpService.java
-│ │ │ ├── DepartmentsService.java
-│ │ │ ├── AddressService.java
-│ │ │ ├── EmpDeptDetailsService.java
-│ │ │ ├── JobService.java
-│ │ │ └── SalaryService.java
-│ │ └── resources/
-│ │ ├── application.properties
-│ │ ├── static/
-│ │ └── templates/
-│ └── test/java/com/ems/project/
-│ └── EmployeeManagementSystemApplicationTests.java
-├── .gitignore
-├── pom.xml
-└── README.md
-
-
+![Project Structure](project_structure.png)
 
 ---
 
-## 🔗 API Endpoints
+## API Endpoints
 
-### Swagger Screenshots
-![Swagger Screenshot 1](https://github.com/user-attachments/assets/aaf7e0f1-bad5-4de0-9988-80bebf3df496)  
-![Swagger Screenshot 2](https://github.com/user-attachments/assets/2e58dfbe-a5cd-4cc6-a005-23e143174fd5)  
-![Swagger Screenshot 3](https://github.com/user-attachments/assets/e7fd7c36-1ba3-4ccd-9e29-a8d8f51ff594)  
-![Swagger Screenshot 4](https://github.com/user-attachments/assets/1acad69c-7721-4666-a4a4-23abb3c08913)  
-![Swagger Screenshot 5](https://github.com/user-attachments/assets/a0eebc57-c2a4-4f46-9f62-26cba1493f46)  
-![Swagger Screenshot 6](https://github.com/user-attachments/assets/f2651884-c470-46b0-b2ab-5d13ecf13489)  
+<img width="1844" height="778" alt="Screenshot 2025-09-16 100111" src="https://github.com/user-attachments/assets/aaf7e0f1-bad5-4de0-9988-80bebf3df496" />
+
+<img width="1830" height="767" alt="Screenshot 2025-09-16 100125" src="https://github.com/user-attachments/assets/2e58dfbe-a5cd-4cc6-a005-23e143174fd5" />
+
+<img width="1844" height="435" alt="Screenshot 2025-09-16 100135" src="https://github.com/user-attachments/assets/e7fd7c36-1ba3-4ccd-9e29-a8d8f51ff594" />
+
+<img width="1821" height="446" alt="Screenshot 2025-09-16 100145" src="https://github.com/user-attachments/assets/1acad69c-7721-4666-a4a4-23abb3c08913" />
+
+<img width="1846" height="584" alt="Screenshot 2025-09-16 100156" src="https://github.com/user-attachments/assets/a0eebc57-c2a4-4f46-9f62-26cba1493f46" />
+
+<img width="1839" height="828" alt="Screenshot 2025-09-16 100210" src="https://github.com/user-attachments/assets/f2651884-c470-46b0-b2ab-5d13ecf13489" />
 
 ---
 
-## ⚙️ Project Setup
+## Project Setup
+1. Prerequisites
 
-### 1. Prerequisites
-- **Java 21** installed  
-- **MySQL** installed and running  
+Ensure that you have Java 21 installed on your local machine. If not, follow the instructions below:
 
-For **MacOS**:
-```bash
-brew install openjdk@21
+For MacOS:
+            brew install openjdk@21
 export JAVA_HOME=/usr/local/opt/openjdk@21
 
 For Windows:
-Download OpenJDK 21
- and install.
+Download OpenJDK 21 from https://jdk.java.net/21/
  and follow the installation instructions.
 
 Also, ensure MySQL is installed and running on your local machine.
@@ -174,8 +137,9 @@ mvn install
 
 4. Configure the Application
 
-Edit src/main/resources/application.properties:
+Update src/main/resources/application.properties with your MySQL configuration:
 
+  MySQL Configuration
 spring.datasource.url=jdbc:mysql://localhost:3306/ems_db
 spring.datasource.username=root
 spring.datasource.password=your_password
@@ -185,12 +149,14 @@ You can change the database name, username, and password as per your setup.
 
 5. Start the Backend Server
 
-5. Start the Backend Server
+Before starting the server, ensure MySQL is running. Then, start the Spring Boot application:
+
 mvn spring-boot:run
 
 
-Backend available at:
-👉 http://localhost:8080
+The backend will be available at:
+
+http://localhost:8080
 
 6. Access the API Endpoints
 
@@ -210,6 +176,12 @@ Get all departments:
 
 curl -X GET http://localhost:8080/api/departments
 
+
+Get department by ID:
+
+curl -X GET http://localhost:8080/api/departments/1
+
+
 You can explore other endpoints like Address, Jobs, Salary, and EmpDeptDetails similarly.
 
 7. API Documentation (Swagger)
@@ -223,16 +195,15 @@ Start the backend server:
 mvn spring-boot:run
 
 
-Start the server:
+Open the Swagger interface in your browser:
 
-mvn spring-boot:run
+http://localhost:8080/swagger-ui.html
 
 
-Swagger UI:
-👉 http://localhost:8080/swagger-ui.html
+Alternatively, access the raw OpenAPI JSON:
 
-OpenAPI JSON:
-👉 http://localhost:8080/v3/api-docs
+http://localhost:8080/v3/api-docs
+Benefits of Swagger UI:
 
 Interactive documentation for all endpoints
 
@@ -241,8 +212,14 @@ Quick testing directly from the browser
 Clear communication of request methods, parameters, and responses
 
 Once set up correctly, you can explore all Employee, Department, Address, Job, Salary, and EmpDeptDetails APIs directly via Swagger UI.
+
+---
+
 ## Contributing
 If you'd like to contribute to the project, please fork the repository and submit a pull request with your changes. Ensure that you follow the project's coding standards and include relevant tests for new features.
+
+---
+
 ## Future Scope
 JWT-based authentication & authorization
 Docker deployment for easier setup
