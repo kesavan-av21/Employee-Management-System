@@ -1,7 +1,7 @@
 
 # Employment Management System (EMS)
 
-A Spring Boot backend application to manage employees, departments, and addresses, job, salary.
+A Spring Boot backend application to manage employees, departments, addresses, job and  salary.
 This project showcases enterprise-grade backend development with a strong emphasis on clean architecture, DTO-based API design, validations, exception handling, and maintainability.
 
 
