@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RestController
 @RequestMapping("/empdeptdetails")
 @Tag(
-    name = "EmpDeptDetails API's",
+    name = "EmpDeptDetails APIs",
     description = "API Operations related to managing employee-department mappings"
 )
 public class EmpDeptDetailsController {
@@ -40,8 +40,8 @@ public class EmpDeptDetailsController {
     })
     @PostMapping(
     		path = "/POST",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<EmpDeptDetailsDto> addEmpDeptDetails(@RequestBody EmpDeptDetailsDto dto) {
         return ResponseEntity.ok(empDeptDetailsService.addEmpDeptDetails(dto));
     }
@@ -57,7 +57,7 @@ public class EmpDeptDetailsController {
     })
     @GetMapping(
     		path = "/GET/{empNo}",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<EmpDeptDetailsDto>> getEmpDeptDetails(
         @Parameter(description = "Employee number") @PathVariable long empNo
     ) {
@@ -95,7 +95,7 @@ public class EmpDeptDetailsController {
     })
     @GetMapping(
     		path = "/GET/all",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<EmpDeptDetailsDto>> getEmpDeptDetails() {
         List<EmpDeptDetailsDto> details = empDeptDetailsService.getAllMapping();
         return ResponseEntity.ok(details);
@@ -112,7 +112,7 @@ public class EmpDeptDetailsController {
     })
     @GetMapping(
     		path = "/GET/dept/{deptId}",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<EmpDeptDetailsDto>> getEmployeesByDept(
         @Parameter(description = "Department ID") @PathVariable long deptId
     ) {

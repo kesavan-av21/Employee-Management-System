@@ -27,7 +27,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/salary")
 @Tag(
-    name = "Salary API's",
+    name = "Salary APIs",
     description = "API Operations related to managing Salary"
 )
 public class SalaryController {
@@ -50,8 +50,8 @@ public class SalaryController {
     })
     @PostMapping(
     		path = "/POST/{empNo}",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<SalaryDto> addEmpSalaryUsingEmpNo(
         @Parameter(description = "Employee number of the employee to add the salary details")
         @PathVariable Long empNo,
@@ -71,7 +71,7 @@ public class SalaryController {
     })
     @GetMapping(
     		path = "/GET/by-salary/{salary}",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				 produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<SalaryDto>> findEmpDetailsSalaryGreaterThan(
         @Parameter(description = "Minimum salary filter")
         @PathVariable double salary
@@ -89,7 +89,7 @@ public class SalaryController {
     })
     @GetMapping(
     		path = "/GET/amount",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				 produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<Integer> salaryCountGreaterThan(
         @Parameter(description = "Salary amount filter")
         @RequestParam double salary
@@ -109,8 +109,8 @@ public class SalaryController {
     })
     @PutMapping(
     		path = "/PUT/{empNo}",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<SalaryDto> updateSalary(
         @Parameter(description = "Employee number to update salary")
         @PathVariable long empNo,
@@ -131,7 +131,7 @@ public class SalaryController {
     })
     @GetMapping(
     		path = "/GET/by-emp/{empNo}",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				 produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<SalaryDto> getEmpSalaryUsingEmpNo(
         @Parameter(description = "Employee number to get salary details")
         @PathVariable long empNo
@@ -150,7 +150,7 @@ public class SalaryController {
     })
     @GetMapping(
     		path = "/GET/salaries",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				 produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<SalaryDto>> getAllSalaries() {
         List<SalaryDto> salDto = salaryService.getAllSalary();
         return ResponseEntity.ok(salDto);

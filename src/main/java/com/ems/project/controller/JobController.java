@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/job")
 @Tag(
-    name = "Job API's",
+    name = "Job APIs",
     description = "API Operations related to managing jobs"
 )
 public class JobController {
@@ -47,8 +47,8 @@ public class JobController {
     })
     @PostMapping(
     		path = "/POST",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<JobDto> addJobDetails(@RequestBody JobDto jobDto) {
         return jobService.addJobDetails(jobDto);
     }
@@ -80,7 +80,7 @@ public class JobController {
     })
     @GetMapping(
     		path = "/GET/jobdetails/{empNo}",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<JobDto> getEmpJobDetailsUsingEmpNo(
         @Parameter(description = "Employee number to get the job detail")
         @PathVariable Long empNo
@@ -99,7 +99,7 @@ public class JobController {
     })
     @GetMapping(
     		path = "/GET/jobs",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<JobDto>> gettingAllJobs() {
         List<JobDto> jobDto = jobService.getAllJobs();
         return ResponseEntity.ok(jobDto);

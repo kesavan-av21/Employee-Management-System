@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RestController
 @RequestMapping("/dept")
 @Tag(
-    name = "Departments API's",
+    name = "Departments APIs",
     description = "API Operations related to managing departments"
 )
 public class DepartmentsController {
@@ -43,8 +43,8 @@ public class DepartmentsController {
     })
     @PostMapping(
     		path = "/POST/depts",
-    				consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-    	            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	            produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<Dept> addDeptNames(@RequestBody DeptDto deptDto) {
         Dept dept = departmentsSerive.addDepts(deptDto);
         if (dept != null) {
@@ -64,8 +64,8 @@ public class DepartmentsController {
     })
     @PutMapping(
     		path = "/UPDATE",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	            produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<Dept> updateDepts(@RequestBody DeptUpdateDto deptDto) {
         return ResponseEntity.ok(departmentsSerive.updateDepts(deptDto));
     }
@@ -97,7 +97,7 @@ public class DepartmentsController {
     })
     @GetMapping(
     		path = "/GET/{id}",
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				 produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<DeptDto> getDeptName(
         @Parameter(description = "Department ID") 
         @PathVariable long id

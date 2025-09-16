@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/emp")
 @Tag(
-    name = "Employee API's",
+    name = "Employee APIs",
     description = "API Operations related to managing employees"
 )
 public class EmpController {
@@ -50,8 +50,8 @@ public class EmpController {
     })
     @PostMapping(
     		path = "/POST/emp",
-            consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	            produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<EmpMainDetailsDto> addEmployees(
         @RequestBody EmpMainDetailsDto empDto
     ) {
@@ -70,8 +70,8 @@ public class EmpController {
     })
     @PutMapping(
         path = "/PUT/{empNo}",
-        consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-        produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }
+	    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+	            produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE }
     )
     public ResponseEntity<EmpDto> updateEmpById(
         @Parameter(description = "EmpNo")
@@ -95,7 +95,7 @@ public class EmpController {
     })
     @GetMapping(
     		path = "/GET/{empNo}",
-    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<EmpDto> getEmpAllDetailsById(
         @Parameter(description = "EmpNo of the employee to be retrieved")
         @PathVariable("empNo") long id
@@ -117,7 +117,7 @@ public class EmpController {
     })
     @GetMapping(
     		path="/GET/emp",
-    	    produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<EmpDto>> getAllEmpDetails() {
         List<EmpDto> list = empService.getAllEmpDetails();
         if (list.isEmpty()) {
@@ -136,7 +136,7 @@ public class EmpController {
     })
     @GetMapping(
     		path = "/GET/emp/details/{empNo}",
-    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<EmpDto> getEmpEmpTableDetails(
         @Parameter(description = "EmpNo")
         @PathVariable("empNo") long id
@@ -159,7 +159,7 @@ public class EmpController {
     })
     @GetMapping(
     		path = "/GET/emp/sort",
-    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<Page<EmpDto>> sortingEmp(
     	@Parameter(description = "Field")
         @RequestParam String field,
@@ -183,7 +183,7 @@ public class EmpController {
     })
     @GetMapping(
     		path = "/GET/emp/sort/age/greater",
-    	    produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE }
     		)
     public ResponseEntity<List<EmpDto>> sortEmpByAgeGreaterThanAgeByDir(
     	@Parameter(description = "direction")
@@ -204,7 +204,7 @@ public class EmpController {
     })
     @GetMapping(
     		path = "/GET/emp/sort/age/less",
-    	    produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    				produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<Page<EmpDto>> sortEmpByAgeLessThanAgeByDir(
     	@Parameter(description = "age")
         @RequestParam Long age,

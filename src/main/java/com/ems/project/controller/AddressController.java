@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/address")
 @Tag(
-    name = "Address API's",
+    name = "Address APIs",
     description = "API Operations related to managing address"
 )
 public class AddressController {
@@ -42,8 +42,8 @@ public class AddressController {
     })
     @PostMapping(
     		path = "/POST/address/{empNo}",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<AddressDto>> addEmpAddress(
         @Parameter(description = "Employee number to which addresses will be added")
         @PathVariable long empNo,
@@ -63,8 +63,8 @@ public class AddressController {
     })
     @PutMapping(
     		path = "/PUT/update/{empNo}/{addressType}",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE },
+    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<AddressDto> updateAddressByEmpNo(
         @Parameter(description = "Employee number of the address to update")
         @PathVariable long empNo,
@@ -89,7 +89,7 @@ public class AddressController {
     })
     @GetMapping(
     		path = "/GET/{empNo}",
-    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    		produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<AddressDto>> getEmpAddressByEmpNo(
         @Parameter(description = "Employee number of the address to retrieve")
         @PathVariable Long empNo
@@ -111,7 +111,7 @@ public class AddressController {
     })
     @GetMapping(
     		path = "/GET/type/{addressType}",
-    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<AddressDto>> findByAddressType(
         @Parameter(description = "Address type of the address to retrieve")
         @PathVariable String addressType
@@ -133,7 +133,7 @@ public class AddressController {
     })
     @GetMapping(
     		path = "/GET/address/{count}",
-    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<AddressDto>> findByEmployeeWithAddressCount(
         @Parameter(description = "Employee address count to retrieve the data")
         @PathVariable int count
@@ -155,7 +155,7 @@ public class AddressController {
     })
     @GetMapping(
     		path = "/GET/address",
-    		produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<List<AddressDto>> getAllAddress(
         @Parameter(description = "Page number")
         @RequestParam int pageNo,
@@ -255,8 +255,8 @@ public class AddressController {
     })
     @PutMapping(
     		path = "/PUT/id/{id}",
-    		consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    		consumes = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE  },
+    	    produces = { MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<AddressDto> updateAddressById(
         @Parameter(description = "ID")
         @PathVariable Long id,
