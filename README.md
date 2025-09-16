@@ -86,9 +86,6 @@ Java Spring Boot (Backend): A powerful, established Java framework for building 
 ## Project Structure
 ```text
 Employee-Management-System/
-├── README.md
-├── .gitignore
-├── pom.xml
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -156,6 +153,9 @@ Employee-Management-System/
 │               └── ems/
 │                   └── project/
 │                       └── EmployeeManagementSystemApplicationTests.java
+├── README.md
+├── .gitignore
+├── pom.xml
 ```
 ---
 
